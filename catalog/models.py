@@ -35,7 +35,6 @@ class Product(models.Model):
     cost_product = models.FloatField(verbose_name='Цена за покупку')
     created_at = models.DateField(verbose_name='Дата создания')
     updated_at = models.DateField(verbose_name='Дата последнего изменения')
-    manufactured_at = models.DateField(verbose_name='Дата производства продукта', **NULLABLE)
 
     def __str__(self):
         return f'{self.product_name} {self.product_script} {self.category} {self.cost_product}'
