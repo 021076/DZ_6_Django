@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 NULLABLE = {'blank': True, 'null': True}
 
 
@@ -30,6 +28,7 @@ class Product(models.Model):
     created_at = models.DateField(auto_now_add=True, verbose_name='Дата создания')
     # auto_now_add=True - установка значение «сейчас» при первом создании объекта
     updated_at = models.DateField(auto_now=True, verbose_name='Дата последнего изменения')
+
     # auto_now=True - установка значения «сейчас» каждый раз при сохранении объекта
 
     def __str__(self):
