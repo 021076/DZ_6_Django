@@ -116,7 +116,7 @@ python -Xutf8 manage.py dumpdata имя_приложения > имя_папки
       def json_read_categories(): # Здесь мы получаем данные из фикстурв с категориями
 
       @staticmethod
-      def json_read_products(): # Здесь мы получаем данные из фикстурв с продуктами
+      def json_read_catalog(): # Здесь мы получаем данные из фикстурв с продуктами
 
       def handle(self, *args, **options):
     # Удалите все продукты
@@ -132,7 +132,7 @@ python -Xutf8 manage.py dumpdata имя_приложения > имя_папки
     # Создаем объекты в базе с помощью метода bulk_create()
           Category.objects.bulk_create(category_for_create)
     # Обходим все значения продуктов из фиктсуры для получения информации об одном объекте
-          for product in Command.json_read_products():
+          for product in Command.json_read_catalog():
               product_for_create.append(
                   Product(название_поля=значение_из_словаря, ..., 
     # получаем категорию из базы данных для корректной связки объектов
