@@ -13,8 +13,8 @@
                         <p class="card-text">{{ product.product_description | truncatechars:100 }}</p>
                         <p class="card-text">Цена: {{ product.cost_product }} руб.</p>
                         <div class="btn-group">
-                            <a class="btn btn-primary" href="{% url 'catalog:catalog_list' %}"
-                               role="button">Назад</a>
+                            <a href="{% url 'catalog:catalog_list' %}"
+                               class="btn btn-sm btn-outline-secondary">Назад</a>
                         </div>
                     </div>
                 </div>

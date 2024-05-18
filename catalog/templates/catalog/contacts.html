@@ -1,21 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Contacts</title>
-</head>
-<body>
-<ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/contacts">Contacts</a></li>
-</ul>
-<br>
-<form method="post">
-    {% csrf_token %}
-    <input type="text" name="name" placeholder="Имя"/><br><br>
-    <input type="email" name="email" placeholder="email"/><br><br>
-    <input type="text" name="phone" placeholder="телефон"/><br><br>
-    <input type="submit" value="Отправить"/>
-</form>
-</body>
-</html>
+{% extends 'catalog/base.html' %}
+{% block content%}
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+        <h2 class="fw-light">Контакты</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Имя"/><br><br>
+                <input type="email" name="email" placeholder="email"/><br><br>
+                <input type="text" name="phone" placeholder="телефон"/><br><br>
+                <input type="submit" value="Отправить"/>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

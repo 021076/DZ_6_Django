@@ -7,14 +7,16 @@
             {% for product in catalog %}
             <div class="col">
                 <div class="card shadow-sm">
-                    <img class="card-img-top" src="{{ product.imagery | media_filter }}"
+                    <img class="img-fluid" src="{{ product.imagery | media_filter }}"
                          alt="{{ product.product_name }}">
                     <div class="card-body">
                         <h6 class="card-text">{{ product.product_name }}</h6>
                         <p class="card-text">Цена: {{ product.cost_product }} руб.</p>
                         <div class="btn-group">
-                            <a class="btn btn-primary" href="{% url 'catalog:product_detail' product.pk %}"
-                               role="button">Посмотреть</a>
+                            <a href="{% url 'catalog:product_detail' product.pk %}"
+                               class="btn btn-sm btn-outline-secondary">Посмотреть</a>
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Изменить</a>
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Удалить</a>
                         </div>
                     </div>
                 </div>

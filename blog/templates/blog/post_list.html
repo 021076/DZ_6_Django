@@ -1,0 +1,30 @@
+{% extends 'catalog/base.html' %}
+{% block content%}
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+        <h2 class="fw-light">Блог</h2>
+        <h2 class="lead text-body-secondary">Статьи о шитье и новинках индустрии моды</h2>
+        <div class="col-12 mb-5">
+            <a href="{% url 'blog:post_create' %}" class="btn btn-sm btn-outline-secondary">Добавить статью</a>
+        </div>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for object in object_list %}
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <p class="card-text">{{ object.title }} ({{ object.slug }})</p>
+                            <div class="btn-group">
+                                <a href="{% url 'blog:post_view' object.pk %}" class="btn btn-sm btn-outline-secondary">Посмотреть</a>
+                                <a href="{% url 'blog:post_edit' object.pk %}" class="btn btn-sm btn-outline-secondary">Изменить</a>
+                                <a href="{% url 'blog:post_delete' object.pk %}" class="btn btn-sm btn-outline-secondary">Удалить</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
