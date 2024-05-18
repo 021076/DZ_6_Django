@@ -17,8 +17,16 @@
                             <div class="btn-group">
                                 <a href="{% url 'blog:post_view' object.pk %}" class="btn btn-sm btn-outline-secondary">Посмотреть</a>
                                 <a href="{% url 'blog:post_edit' object.pk %}" class="btn btn-sm btn-outline-secondary">Изменить</a>
-                                <a href="{% url 'blog:post_delete' object.pk %}" class="btn btn-sm btn-outline-secondary">Удалить</a>
-                            </div>
+                                <a href="{% url 'blog:post_delete' object.pk %}"
+                                   class="btn btn-sm btn-outline-secondary">Удалить</a>
+                            {% if object.is_published %}
+                            <a class="btn btn-warning" href="{% url 'blog:toggle_activity' object.pk %}">Снять с
+                                публикации</a>
+                            {% else %}
+                            <a class="btn btn-success"
+                               href="{% url 'blog:toggle_activity' object.pk %}">Опубликовать</a>
+                            {% endif %}
+                                </div>
                         </div>
                     </div>
                 </div>
