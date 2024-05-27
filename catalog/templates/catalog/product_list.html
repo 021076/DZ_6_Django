@@ -3,6 +3,9 @@
 {% block content%}
 <div class="album py-5 bg-body-tertiary">
     <div class="container">
+        <div class="col-12 mb-5">
+            <a href="{% url 'catalog:product_create' %}" class="btn btn-sm btn-outline-secondary">Добавить товар</a>
+        </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             {% for product in catalog %}
             <div class="col">
@@ -15,8 +18,10 @@
                         <div class="btn-group">
                             <a href="{% url 'catalog:product_detail' product.pk %}"
                                class="btn btn-sm btn-outline-secondary">Посмотреть</a>
-                            <a href="#" class="btn btn-sm btn-outline-secondary">Изменить</a>
-                            <a href="#" class="btn btn-sm btn-outline-secondary">Удалить</a>
+                            <a href="{% url 'catalog:product_edit' product.pk %}"
+                               class="btn btn-sm btn-outline-secondary">Изменить</a>
+                            <a href="{% url 'catalog:product_delete' product.pk %}"
+                               class="btn btn-sm btn-outline-secondary">Удалить</a>
                         </div>
                     </div>
                 </div>

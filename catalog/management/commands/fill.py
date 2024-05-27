@@ -27,7 +27,7 @@ class Command(BaseCommand):
             categories_for_create.append(Category(**category))
         Category.objects.bulk_create(categories_for_create)
 
-        catalog_list = [
+        product_list = [
             {'product_name': 'Бязь "Розы"',
              'product_description': 'Х/б ткань, набивная с рисунком "Розы", плотность 125 г/м2, ширина 1,5 м',
              'category_id': self.raw_select('Ткани'),
@@ -56,6 +56,6 @@ class Command(BaseCommand):
 
         Product.objects.all().delete()
         catalog_for_create = []
-        for product in catalog_list:
+        for product in product_list:
             catalog_for_create.append(Product(**product))
         Product.objects.bulk_create(catalog_for_create)

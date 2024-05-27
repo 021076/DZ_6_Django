@@ -14,6 +14,7 @@
                     <div class="card shadow-sm">
                         <div class="card-body">
                             <p class="card-text">{{ object.title }} ({{ object.slug }})</p>
+                             <p class="card-text">{{ object.content | truncatechars:50 }}</p>
                             <div class="btn-group">
                                 <a href="{% url 'blog:post_view' object.pk %}" class="btn btn-sm btn-outline-secondary">Посмотреть</a>
                                 <a href="{% url 'blog:post_edit' object.pk %}" class="btn btn-sm btn-outline-secondary">Изменить</a>

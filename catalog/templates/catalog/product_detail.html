@@ -6,14 +6,14 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <div class="col">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ product.imagery | media_filter }}"
-                         alt="{{ product.product_name }}">
+                    <img class="card-img-top" src="{{ object.imagery | media_filter }}"
+                         alt="{{ object.product_name }}">
                     <div class="card-body">
-                        <h5 class="card-text">{{ product.product_name }}</h5>
-                        <p class="card-text">{{ product.product_description | truncatechars:100 }}</p>
-                        <p class="card-text">Цена: {{ product.cost_product }} руб.</p>
+                        <h5 class="card-text">{{ object.product_name }}</h5>
+                        <p class="card-text">{{ object.product_description | truncatechars:100 }}</p>
+                        <p class="card-text">Цена: {{ object.cost_product }} руб.</p>
                         <div class="btn-group">
-                            <a href="{% url 'catalog:catalog_list' %}"
+                            <a href="{% url 'catalog:product_list' %}"
                                class="btn btn-sm btn-outline-secondary">Назад</a>
                         </div>
                     </div>
