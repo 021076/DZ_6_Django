@@ -41,7 +41,7 @@
       "category": 1,
       "cost_product": "350.00",
       "created_at": "2024-05-18T08:15:31.488Z",
-      "updated_at": "2024-05-18T08:15:31.488Z"
+      "updated_at": "2024-05-29T15:25:48.924Z"
     }
   },
   {
@@ -80,7 +80,7 @@
       "category": 3,
       "cost_product": "400.00",
       "created_at": "2024-05-18T08:17:47.538Z",
-      "updated_at": "2024-05-18T08:17:47.538Z"
+      "updated_at": "2024-05-26T16:23:51.198Z"
     }
   },
   {
@@ -93,7 +93,7 @@
       "category": 4,
       "cost_product": "312.00",
       "created_at": "2024-05-18T08:18:33.471Z",
-      "updated_at": "2024-05-18T08:18:33.471Z"
+      "updated_at": "2024-05-29T15:17:23.330Z"
     }
   },
   {
@@ -106,7 +106,77 @@
       "category": 4,
       "cost_product": "216.00",
       "created_at": "2024-05-18T08:19:11.952Z",
-      "updated_at": "2024-05-18T08:19:11.952Z"
+      "updated_at": "2024-05-29T15:25:32.195Z"
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 10,
+    "fields": {
+      "product": 5,
+      "version_number": 1,
+      "version_title": "нитка 170 м",
+      "actual_version": false
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 11,
+    "fields": {
+      "product": 5,
+      "version_number": 2,
+      "version_title": "Нитка вощенная 200 м",
+      "actual_version": true
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 12,
+    "fields": {
+      "product": 1,
+      "version_number": 1,
+      "version_title": "бязь, рисунок веточки розы",
+      "actual_version": true
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 13,
+    "fields": {
+      "product": 6,
+      "version_number": 1,
+      "version_title": "нитки bestex цвет топленое молоко",
+      "actual_version": true
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 14,
+    "fields": {
+      "product": 2,
+      "version_number": 1,
+      "version_title": "пуговица со стразами Сваровски",
+      "actual_version": true
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 15,
+    "fields": {
+      "product": 3,
+      "version_number": 1,
+      "version_title": "ножницы для правшей",
+      "actual_version": true
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 16,
+    "fields": {
+      "product": 4,
+      "version_number": 1,
+      "version_title": "лекало для проймы",
+      "actual_version": false
     }
   }
 ]

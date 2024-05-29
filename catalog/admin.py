@@ -1,5 +1,5 @@
 from django.contrib import admin
-from catalog.models import Category, Product
+from catalog.models import Category, Product, Version
 
 
 # Register your models here.
@@ -19,3 +19,10 @@ class ProductAdmin(admin.ModelAdmin):
     # фильтровать по категории
     search_fields = ('product_name', 'product_description',)
     # осуществлять поиск по названию и полю описания
+
+
+@admin.register(Version)
+class VersionAdmin(admin.ModelAdmin):
+    list_display = ('product', 'version_number', 'version_title', 'actual_version',)
+    list_filter = ('product', 'actual_version')
+    search_fields = ('product', 'actual_version')

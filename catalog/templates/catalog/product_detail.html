@@ -12,6 +12,7 @@
                         <h5 class="card-text">{{ object.product_name }}</h5>
                         <p class="card-text">{{ object.product_description | truncatechars:100 }}</p>
                         <p class="card-text">Цена: {{ object.cost_product }} руб.</p>
+                        <p class="card-text">Актуальная версия: {{ product.version_number }} / {{ product.version_title }}</p>
                         <div class="btn-group">
                             <a href="{% url 'catalog:product_list' %}"
                                class="btn btn-sm btn-outline-secondary">Назад</a>

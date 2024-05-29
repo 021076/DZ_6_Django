@@ -15,6 +15,7 @@
                     <div class="card-body">
                         <h6 class="card-text">{{ product.product_name }}</h6>
                         <p class="card-text">Цена: {{ product.cost_product }} руб.</p>
+                        <p class="card-text">Актуальная версия: {{ product.version_number }} / {{ product.version_title }}</p>
                         <div class="btn-group">
                             <a href="{% url 'catalog:product_detail' product.pk %}"
                                class="btn btn-sm btn-outline-secondary">Посмотреть</a>

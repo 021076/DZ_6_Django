@@ -4,13 +4,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from pytils.translit import slugify
 
 from catalog.forms import ProductForm
-from catalog.models import Product
-
-
-class ProductListView(ListView):
-    model = Product
-    template_name = 'catalog/product_list.html'
-    context_object_name = 'catalog'
+from catalog.models import Product, Version
 
 
 # def product_list(request):
@@ -18,16 +12,49 @@ class ProductListView(ListView):
 #     context = {"catalog": catalog}
 #     return render(request, 'catalog/product_list.html', context)
 
+# def product_detail(request, pk):
+#     product = get_object_or_404(Product, pk=pk)
+#     context = {"product": product}
+#     return render(request, 'catalog/product_detail.html', context)
+
+class ProductListView(ListView):
+    model = Product
+    template_name = 'catalog/product_list.html'
+    context_object_name = 'catalog'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        catalog = Product.objects.all()
+        for product in catalog:
+            actual_version = Version.objects.filter(product=product, actual_version=True)
+            if actual_version:
+                product.version_title = actual_version.last().version_title
+                product.version_number = actual_version.last().version_number
+            else:
+                product.version_title = 'Текущая версия отсутствует'
+                product.version_number = '-'
+        context['catalog'] = catalog
+        return context
+
+
 class ProductDetailView(DetailView):
     model = Product
     template_name = 'catalog/product_detail.html'
     context_object_name = 'product'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        product = self.get_object()
+        actual_version = Version.objects.filter(product=product, actual_version=True)
+        if actual_version:
+            product.version_title = actual_version.last().version_title
+            product.version_number = actual_version.last().version_number
+        else:
+            product.version_title = 'Текущая версия отсутствует'
+            product.version_number = '-'
+        context['product'] = product
+        return context
 
-# def product_detail(request, pk):
-#     product = get_object_or_404(Product, pk=pk)
-#     context = {"product": product}
-#     return render(request, 'catalog/product_detail.html', context)
 
 def contacts(request):
     if request.method == 'Product':
@@ -38,16 +65,12 @@ def contacts(request):
 class ProductCreateView(CreateView):
     model = Product
     form_class = ProductForm
-    # fields = ('product_name', 'product_description', 'imagery', 'category', 'cost_product')
     success_url = reverse_lazy('catalog:product_list')
 
 
 class ProductUpdateView(UpdateView):
     model = Product
     form_class = ProductForm
-    # fields = ('product_name', 'product_description', 'imagery', 'category', 'cost_product')
-
-    # success_url = reverse_lazy('catalog:product_list')
 
     def form_valid(self, form):
         if form.is_valid():
@@ -57,7 +80,7 @@ class ProductUpdateView(UpdateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('catalog:product_list')
+        return reverse('catalog:product_detail', args=[self.kwargs.get('pk')])
 
 
 class ProductDeleteView(DeleteView):
