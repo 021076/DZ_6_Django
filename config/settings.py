@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     #
     'catalog.apps.CatalogConfig',
     'blog.apps.BlogConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +81,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '6_django_dz',  # Название БД
+        'NAME': 'django6dz',  # Название БД
         'USER': 'postgres',  # Пользователь для подключения
         'PASSWORD': 'bd_pyt',  # Пароль для этого пользователя
         'HOST': '127.0.0.1',  # Адрес, на котором развернут сервер БД
@@ -132,3 +133,37 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+AUTH_USER_MODEL = 'users.user'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# mail.ru
+EMAIL_HOST = 'smtp.mail.ru'
+# -------------------
+EMAIL_PORT = 2525
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+# -------------------
+# EMAIL_PORT = 465
+# EMAIL_USE_TLS = False
+# EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'ro_k_sana@mail.ru'
+EMAIL_HOST_PASSWORD = 'sb3NuJqaKhuWVfeBrgu0'
+# yandex
+# EMAIL_HOST = 'smtp.yandex.ru'
+# -------------------
+# # EMAIL_PORT = 465
+# # EMAIL_USE_TLS = False
+# # EMAIL_USE_SSL = True
+# -------------------
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = "ro-k-sana@yandex.ru"
+# EMAIL_HOST_PASSWORD = "tanfvriwxnjjavlu"
+
+EMAIL_SERVER = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_ADMIN = EMAIL_HOST_USER
