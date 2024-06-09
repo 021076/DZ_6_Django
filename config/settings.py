@@ -11,9 +11,13 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -81,9 +85,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django6dz',  # Название БД
-        'USER': 'postgres',  # Пользователь для подключения
-        'PASSWORD': 'bd_pyt',  # Пароль для этого пользователя
+        'NAME': os.getenv('DB_PG_NAME'),  # Название БД
+        'USER': os.getenv('DB_PG_USER'),  # Пользователь для подключения
+        'PASSWORD': os.getenv('DB_PG_PASSWORD'),  # Пароль для этого пользователя
         'HOST': '127.0.0.1',  # Адрес, на котором развернут сервер БД
         'PORT': 5432,  # Порт, на котором работает сервер БД
     }
@@ -110,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 
@@ -150,8 +154,8 @@ EMAIL_USE_SSL = False
 # EMAIL_PORT = 465
 # EMAIL_USE_TLS = False
 # EMAIL_USE_SSL = True
-EMAIL_HOST_USER = 'ro_k_sana@mail.ru'
-EMAIL_HOST_PASSWORD = 'sb3NuJqaKhuWVfeBrgu0'
+EMAIL_HOST_USER = os.getenv('HOST_USER_MAIL')
+EMAIL_HOST_PASSWORD = os.getenv('HOST_PASSWORD_MAIL')
 # yandex
 # EMAIL_HOST = 'smtp.yandex.ru'
 # -------------------
@@ -161,8 +165,8 @@ EMAIL_HOST_PASSWORD = 'sb3NuJqaKhuWVfeBrgu0'
 # -------------------
 # EMAIL_PORT = 587
 # EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = "ro-k-sana@yandex.ru"
-# EMAIL_HOST_PASSWORD = "tanfvriwxnjjavlu"
+# EMAIL_HOST_USER = os.getenv('HOST_USER_YA')
+# EMAIL_HOST_PASSWORD = os.getenv('HOST_PASSWORD_YA')
 
 EMAIL_SERVER = EMAIL_HOST_USER
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
