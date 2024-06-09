@@ -40,8 +40,10 @@
       "imagery": "products/byaz_rose_yzJABPl.jpg",
       "category": 1,
       "cost_product": "350.00",
+      "is_published": "ACTUAL",
       "created_at": "2024-05-18T08:15:31.488Z",
-      "updated_at": "2024-05-29T15:25:48.924Z"
+      "updated_at": "2024-05-29T15:25:48.924Z",
+      "owner": null
     }
   },
   {
@@ -53,8 +55,10 @@
       "imagery": "products/pugovista_k8PrIK9.jpg",
       "category": 2,
       "cost_product": "75.50",
+      "is_published": "ACTUAL",
       "created_at": "2024-05-18T08:16:29.246Z",
-      "updated_at": "2024-05-18T08:16:29.246Z"
+      "updated_at": "2024-05-18T08:16:29.246Z",
+      "owner": null
     }
   },
   {
@@ -66,8 +70,10 @@
       "imagery": "products/nojn_pen_7Ac3G5D.jpg",
       "category": 3,
       "cost_product": "180.00",
+      "is_published": "ACTUAL",
       "created_at": "2024-05-18T08:17:09.776Z",
-      "updated_at": "2024-05-18T08:17:09.776Z"
+      "updated_at": "2024-05-18T08:17:09.776Z",
+      "owner": null
     }
   },
   {
@@ -79,8 +85,10 @@
       "imagery": "products/fr_lekalo_nbqHxGH.jpg",
       "category": 3,
       "cost_product": "400.00",
+      "is_published": "ACTUAL",
       "created_at": "2024-05-18T08:17:47.538Z",
-      "updated_at": "2024-05-26T16:23:51.198Z"
+      "updated_at": "2024-05-26T16:23:51.198Z",
+      "owner": null
     }
   },
   {
@@ -92,8 +100,10 @@
       "imagery": "products/nitka_vosh_black_YYO2Bso.jpg",
       "category": 4,
       "cost_product": "312.00",
+      "is_published": "ACTUAL",
       "created_at": "2024-05-18T08:18:33.471Z",
-      "updated_at": "2024-05-29T15:17:23.330Z"
+      "updated_at": "2024-05-29T15:17:23.330Z",
+      "owner": null
     }
   },
   {
@@ -105,8 +115,25 @@
       "imagery": "products/nitka_bestex_157_W6iTbON.jpg",
       "category": 4,
       "cost_product": "216.00",
+      "is_published": "ACTUAL",
       "created_at": "2024-05-18T08:19:11.952Z",
-      "updated_at": "2024-05-29T15:25:32.195Z"
+      "updated_at": "2024-05-29T15:25:32.195Z",
+      "owner": null
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 7,
+    "fields": {
+      "product_name": "тест",
+      "product_description": "тест",
+      "imagery": "",
+      "category": 3,
+      "cost_product": "1205.00",
+      "is_published": "ACTUAL",
+      "created_at": "2024-06-09T14:22:39.710Z",
+      "updated_at": "2024-06-09T14:22:39.727Z",
+      "owner": 3
     }
   },
   {

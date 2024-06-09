@@ -1,1 +1,67 @@
-[{"model": "catalog.category", "pk": 1, "fields": {"category_name": "Ткани", "category_description": "Текстильное полотно, изготовленное на ткацком станке переплетением взаимно перпендикулярных систем нитей"}}, {"model": "catalog.category", "pk": 2, "fields": {"category_name": "Фурнитура", "category_description": "Вспомогательные изделия, используемые в швейном производстве"}}, {"model": "catalog.category", "pk": 3, "fields": {"category_name": "Швейное оборудование", "category_description": "Машины и инструменты, используемых для раскроя, пошива, отделки и влажно-тепловой обработки изделий"}}, {"model": "catalog.category", "pk": 4, "fields": {"category_name": "Нитки", "category_description": "Разновидность волокнистого материала - тонко скрученная пряжа, используемая для шитья одежды"}}, {"model": "catalog.product", "pk": 1, "fields": {"product_name": "Бязь \"Розы\"", "product_description": "Х/б ткань, набивная с рисунком \"Розы\", плотность 125 г/м2, ширина 1,5 м", "imagery": "products/byaz_rose_yzJABPl.jpg", "category": 1, "cost_product": "350.00", "created_at": "2024-05-18T08:15:31.488Z", "updated_at": "2024-05-29T15:25:48.924Z", "owner": null}}, {"model": "catalog.product", "pk": 2, "fields": {"product_name": "Пуговица для шубы", "product_description": "Пуговица круглая, на ножке, основной цвет серый, с розовыми стразами", "imagery": "products/pugovista_k8PrIK9.jpg", "category": 2, "cost_product": "75.50", "created_at": "2024-05-18T08:16:29.246Z", "updated_at": "2024-05-18T08:16:29.246Z", "owner": null}}, {"model": "catalog.product", "pk": 3, "fields": {"product_name": "Ножницы портновские Mr.Pen", "product_description": "Нержавеющая сталь, 9,5 дюймов, для правшей", "imagery": "products/nojn_pen_7Ac3G5D.jpg", "category": 3, "cost_product": "180.00", "created_at": "2024-05-18T08:17:09.776Z", "updated_at": "2024-05-18T08:17:09.776Z", "owner": null}}, {"model": "catalog.product", "pk": 4, "fields": {"product_name": "Французское лекало", "product_description": "Для оформления линии проймы, оката рукава, линии талии, горловины", "imagery": "products/fr_lekalo_nbqHxGH.jpg", "category": 3, "cost_product": "400.00", "created_at": "2024-05-18T08:17:47.538Z", "updated_at": "2024-05-26T16:23:51.198Z", "owner": null}}, {"model": "catalog.product", "pk": 5, "fields": {"product_name": "Нитка вощеная для кожи и обуви черная", "product_description": "Круглая крученая нить вощеная 200 м, толщина 1 мм, цвет черный", "imagery": "products/nitka_vosh_black_YYO2Bso.jpg", "category": 4, "cost_product": "312.00", "created_at": "2024-05-18T08:18:33.471Z", "updated_at": "2024-05-29T15:17:23.330Z", "owner": null}}, {"model": "catalog.product", "pk": 6, "fields": {"product_name": "Нитки Bestex, цв.157", "product_description": "Полиэстер 100%, толщина 40/2, 365 м, цвет 157-топленое молоко", "imagery": "products/nitka_bestex_157_W6iTbON.jpg", "category": 4, "cost_product": "216.00", "created_at": "2024-05-18T08:19:11.952Z", "updated_at": "2024-05-29T15:25:32.195Z", "owner": null}}, {"model": "catalog.version", "pk": 10, "fields": {"product": 5, "version_number": 1, "version_title": "нитка 170 м", "actual_version": false}}, {"model": "catalog.version", "pk": 11, "fields": {"product": 5, "version_number": 2, "version_title": "Нитка вощенная 200 м", "actual_version": true}}, {"model": "catalog.version", "pk": 12, "fields": {"product": 1, "version_number": 1, "version_title": "бязь, рисунок веточки розы", "actual_version": true}}, {"model": "catalog.version", "pk": 13, "fields": {"product": 6, "version_number": 1, "version_title": "нитки bestex цвет топленое молоко", "actual_version": true}}, {"model": "catalog.version", "pk": 14, "fields": {"product": 2, "version_number": 1, "version_title": "пуговица со стразами Сваровски", "actual_version": true}}, {"model": "catalog.version", "pk": 15, "fields": {"product": 3, "version_number": 1, "version_title": "ножницы для правшей", "actual_version": true}}, {"model": "catalog.version", "pk": 16, "fields": {"product": 4, "version_number": 1, "version_title": "лекало для проймы", "actual_version": false}}]
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$IUt4zc2RjnqhEwoFAUaPL2$bdeUWsW1y7Lw58cgKl+qBUx4l5uM2+f8flhpg+VUAgQ=",
+      "last_login": "2024-06-09T14:31:27.959Z",
+      "is_superuser": true,
+      "first_name": "Admin",
+      "last_name": "SuperUser",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-06-09T14:12:49.592Z",
+      "email": "admin@admin.csu",
+      "phone": null,
+      "avatar": "",
+      "country": null,
+      "token": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$AC8itJtMfZWuNRZOT1xPLy$flDgS1q6dvIdOWrG1n8Sh8zVvCUU8Ip8xfJC8ia+Fu4=",
+      "last_login": "2024-06-09T14:43:38.992Z",
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-06-09T14:20:57Z",
+      "email": "user1_test@mail.ru",
+      "phone": null,
+      "avatar": "",
+      "country": null,
+      "token": "27722d92b0b58a1e100d213c0be6e7ba",
+      "groups": [
+        1
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$J9OymLUNryPyVBgw8tOBHf$ekYFwgAryUoxGpvfEMKW+TSkqC63nwaojqtw4Di1tqM=",
+      "last_login": "2024-06-09T14:31:58.893Z",
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-06-09T14:22:01Z",
+      "email": "user2_test@mail.ru",
+      "phone": null,
+      "avatar": "",
+      "country": null,
+      "token": "98b2a37d70a5b72c333f7c1be42a2e7f",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
