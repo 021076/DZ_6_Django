@@ -34,3 +34,9 @@ class ProductForm(StyleMixin, forms.ModelForm):
             if word in cleaned_data.lower().split(" "):
                 raise forms.ValidationError('Ошибка, запрещенное слово в описании')
         return cleaned_data
+
+
+class ProductModeratorForm(StyleMixin, forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ('product_description', 'is_published', 'category')
