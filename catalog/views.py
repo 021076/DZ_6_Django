@@ -75,6 +75,7 @@ class ProductCreateView(CreateView, LoginRequiredMixin):
         product.save()
         return super().form_valid(form)
 
+
 class ProductUpdateView(LoginRequiredMixin, UpdateView):
     model = Product
     form_class = ProductForm
@@ -93,7 +94,8 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
         user = self.request.user
         if user == self.object.owner:
             return ProductForm
-        if user.has_perm('product.can_cancel_published') and user.has_perm('product.can_change_product_description') and user.has_perm('product.can_change_product_category'):
+        if user.has_perm('product.can_cancel_published') and user.has_perm(
+                'product.can_change_product_description') and user.has_perm('product.can_change_product_category'):
             return ProductModeratorForm
         raise PermissionDenied
 
