@@ -6,6 +6,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from pytils.translit import slugify
 from catalog.forms import ProductForm, ProductModeratorForm
 from catalog.models import Product, Version
+from catalog.services import get_list_from_cache
 
 
 # def product_list(request):
@@ -36,6 +37,9 @@ class ProductListView(ListView):
                 product.version_number = '-'
         context['catalog'] = catalog
         return context
+
+    def get_queryset(self):
+        return get_list_from_cache(Product, "catalog")
 
 
 class ProductDetailView(DetailView):

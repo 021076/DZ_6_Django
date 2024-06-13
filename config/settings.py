@@ -23,7 +23,7 @@ load_dotenv(BASE_DIR / 'env/.env')
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6fa$3**z4yhw!6j#4&kz@egrq43g2#b(t6=x#a#lnj6(!)^-pb'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -88,8 +88,8 @@ DATABASES = {
         'NAME': os.getenv('DB_PG_NAME'),  # Название БД
         'USER': os.getenv('DB_PG_USER'),  # Пользователь для подключения
         'PASSWORD': os.getenv('DB_PG_PASSWORD'),  # Пароль для этого пользователя
-        'HOST': '127.0.0.1',  # Адрес, на котором развернут сервер БД
-        'PORT': 5432,  # Порт, на котором работает сервер БД
+        'HOST': os.getenv('DB_PG_HOST'),  # Адрес, на котором развернут сервер БД
+        'PORT': os.getenv('DB_PG_PORT'),  # Порт, на котором работает сервер БД
     }
 }
 
@@ -114,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'ru-ru'
+LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'UTC'
 
@@ -145,29 +145,31 @@ LOGOUT_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # mail.ru
-EMAIL_HOST = 'smtp.mail.ru'
-# -------------------
-EMAIL_PORT = 2525
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
-# -------------------
-# EMAIL_PORT = 465
-# EMAIL_USE_TLS = False
-# EMAIL_USE_SSL = True
+EMAIL_HOST = os.getenv('HOST_MAIL')
+EMAIL_PORT = os.getenv('HOST_MAIL_PORT')
+EMAIL_USE_TLS = os.getenv('HOST_MAIL_TLS')
+EMAIL_USE_SSL = os.getenv('HOST_MAIL_SSL')
 EMAIL_HOST_USER = os.getenv('HOST_USER_MAIL')
 EMAIL_HOST_PASSWORD = os.getenv('HOST_PASSWORD_MAIL')
 # yandex
-# EMAIL_HOST = 'smtp.yandex.ru'
-# -------------------
-# # EMAIL_PORT = 465
-# # EMAIL_USE_TLS = False
-# # EMAIL_USE_SSL = True
-# -------------------
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
+# EMAIL_HOST = os.getenv('HOST_YA')
+# EMAIL_PORT = os.getenv('HOST_YA_PORT')
+# EMAIL_USE_TLS = os.getenv('HOST_YA_TLS')
+# EMAIL_USE_SSL = os.getenv('HOST_YA_SSL')
 # EMAIL_HOST_USER = os.getenv('HOST_USER_YA')
-# EMAIL_HOST_PASSWORD = os.getenv('HOST_PASSWORD_YA')
+# EMAIL_HOST_PASSWORD = os.getenv('HOST_PASSWORD_YA'
 
 EMAIL_SERVER = EMAIL_HOST_USER
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_ADMIN = EMAIL_HOST_USER
+
+CACHE_ENABLED = True
+if CACHE_ENABLED:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+            'LOCATION': os.getenv('CACHE_LOCATION'),
+            # 'LOCATION': 'redis://username:password@127.0.0.1:6379',-- если redis закрыт авторизацией
+            'TIMEOUT': 300,  # Ручная регулировка времени жизни кеша в секундах, по умолчанию 300
+        }
+    }

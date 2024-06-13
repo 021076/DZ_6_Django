@@ -38,7 +38,7 @@ def verification(request, token):
     user = get_object_or_404(User, token=token)
     user.verified = True
     user.is_active = True
-    user.save()
+    user.save(update_fields=['verified', 'is_active'])
     return redirect(reverse('users:login'))
 
 
