@@ -1,7 +1,5 @@
 from django.urls import path
 from django.views.decorators.cache import cache_page
-
-from blog.views import PostCreateView, PostUpdateView, PostDeleteView
 from catalog.views import ProductListView, ProductDetailView, contacts, ProductDeleteView, ProductUpdateView, \
     ProductCreateView
 from catalog.apps import CatalogConfig

@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models import Choices
 from users.models import User
 
 NULLABLE = {'blank': True, 'null': True}

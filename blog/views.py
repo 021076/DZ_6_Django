@@ -40,6 +40,7 @@ class PostDetailView(DetailView):
 class PostUpdateView(UpdateView):
     model = Post
     fields = ('title', 'content', 'preview', 'is_published')
+
     # success_url = reverse_lazy('blog:post_list')
 
     def form_valid(self, form):
